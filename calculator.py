@@ -59,3 +59,17 @@ class Calc():
             self.new_num = True
             self.op = op
             self.eq_flag = False
+
+    def cancel(self):
+        text_box.delete(0, END)
+        text_box.insert(0, "0")
+        self.new_num = True
+
+    def all_cancel(self):
+        self.cancel()
+        self.total = 0
+
+    def sign(self):
+        self.current = -(float(text_box.get()))
+        text_box.delete(0, END)
+        text_box.insert(0, self.current)
