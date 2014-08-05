@@ -45,3 +45,17 @@ class Calc():
         text_box.delete(0, END)
         text_box.insert(0, self.total)
         self.new_num = True
+
+    def operation(self, op):
+        if self.op_pending is True:
+            self.do_sum()
+            self.op = op
+        else:
+            self.op_pending = True
+            if self.eq_flag is False:
+                self.total = float(text_box.get())
+            else:
+                self.total = self.current
+            self.new_num = True
+            self.op = op
+            self.eq_flag = False
