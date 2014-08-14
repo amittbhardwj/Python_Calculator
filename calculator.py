@@ -73,3 +73,15 @@ class Calc():
         self.current = -(float(text_box.get()))
         text_box.delete(0, END)
         text_box.insert(0, self.current)
+
+
+# make the buttons
+numbers = "789456123"
+i = 0
+bttn = []
+for j in range(1, 4):
+    for k in range(3):
+        bttn.append(Button(Calc, text= numbers[i]))
+        bttn[i].grid(row= j, column= k, pady= 5)
+        bttn[i]["command"] = lambda x = numbers[i]: sum1.num_press(x)
+        i += 1
